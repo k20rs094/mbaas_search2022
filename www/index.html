@@ -50,11 +50,20 @@
         })
     }
 
+    function searchmain(){
+      let TestDataClass = ncmb.DataStore(db);
+
+      TestDataClass.equalTo("type","main").fetchAll()
+        .then(function(results) {
+          showResults(results);
+        })
+    }
+
     
 
     function showResults(results) {
       // テーブルのヘッダを生成
-      let msg = "<table><tr><th>商品名</th><th>値段（円）</th><th>商品の種類</th><th>商品の重たさ</th></tr>";
+      let msg = "<table><tr><th>商品名</th><th>値段（円）</th><th>国の種類</th><th>商品の種類</th></tr>";
       for (let i = 0; i < results.length; i++) {
         // 各データを収めた表の列を生成
         msg += "<tr>";
@@ -95,6 +104,13 @@
     <button class="btn" onclick="searchmoney()">料金で検索</button>
 
     <button class="btn" onclick="searchcountry()">国別で検索</button>
+  </div>
+
+   <div id="button"> 
+    <button class="btn2" onclick="searchmain()">main</button>
+    <button class="btn2" onclick="searchmain()">sub</button>
+    <button class="btn2" onclick="searchmain()">desert</button>
+    <button class="btn2" onclick="searchmain()">drink</button>
   </div>
   
   <div id="message">検索結果...</div>
