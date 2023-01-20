@@ -58,6 +58,30 @@
           showResults(results);
         })
     }
+    function searchsub(){
+      let TestDataClass = ncmb.DataStore(db);
+
+      TestDataClass.equalTo("type","sub").fetchAll()
+        .then(function(results) {
+          showResults(results);
+        })
+    }
+    function searchdesert(){
+      let TestDataClass = ncmb.DataStore(db);
+
+      TestDataClass.equalTo("type","desert").fetchAll()
+        .then(function(results) {
+          showResults(results);
+        })
+    }
+    function searchdrink(){
+      let TestDataClass = ncmb.DataStore(db);
+
+      TestDataClass.equalTo("type","drink").fetchAll()
+        .then(function(results) {
+          showResults(results);
+        })
+    }
 
     
 
@@ -108,9 +132,9 @@
 
    <div id="button"> 
     <button class="btn2" onclick="searchmain()">main</button>
-    <button class="btn2" onclick="searchmain()">sub</button>
-    <button class="btn2" onclick="searchmain()">desert</button>
-    <button class="btn2" onclick="searchmain()">drink</button>
+    <button class="btn2" onclick="searchsub()">sub</button>
+    <button class="btn2" onclick="searchdesert()">desert</button>
+    <button class="btn2" onclick="searchdrink()">drink</button>
   </div>
   
   <div id="message">検索結果...</div>
