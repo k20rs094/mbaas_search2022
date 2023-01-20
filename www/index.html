@@ -45,7 +45,7 @@
 
     function showResults(results) {
       // テーブルのヘッダを生成
-      let msg = "<table><tr><th>商品名</th><th>値段（円）</th><th>タイプ</th><th>商品の重たさ</th></tr>";
+      let msg = "<table><tr><th>商品名</th><th>値段（円）</th><th>商品の種類</th><th>商品の重たさ</th></tr>";
       for (let i = 0; i < results.length; i++) {
         // 各データを収めた表の列を生成
         msg += "<tr>";
@@ -63,14 +63,14 @@
 </head>
 
 <body>
-  <h1>mBaaS search</h1>
+  <h1>食堂メニュー案内</h1>
   <div>
-    <label for="name">name:</label>
-    <input id="name" type="text" placeholder="monster name">
+    <label for="name">商品名:</label>
+    <input id="name" type="text" placeholder="例）おにぎり">
   </div>
   <div>
-    <label for="level">level:</label>
-    <input id="level" type="number" placeholder="monster level">
+    <label for="level">金額</label>
+    <input id="level" type="number" placeholder="例）400">
   </div>
   <div id="button">
     <button class="btn" onclick="fetchAll()">Fetch All</button>
@@ -80,7 +80,7 @@
     <button class="btn" onclick="searchLevelLT()">Level &lt</button>
     <button class="btn" onclick="searchLevel()">Level</button>
   </div>
-  <div id="message">message area</div>
+  <div id="message">検索結果...</div>
 </body>
 
 </html>
