@@ -13,7 +13,7 @@
     // NCMB アクセスの準備
     let ncmb = new NCMB(appKey, clientKey);
     // 本アプリで使うクラスの指定。const は定数の宣言。変更できない変数と思えば良い。
-    const db = "meal";
+    const db = "meal";//二フクラのデータ
 
     function fetchAll() {
       let TestDataClass = ncmb.DataStore(db);
@@ -26,16 +26,25 @@
      function searchName() {
          let name=$("#name").val();//変数宣言
       let TestDataClass = ncmb.DataStore(db);
-      TestDataClass.equalTo("name",name).fetchAll()
+      TestDataClass.equalTo("Name",name).fetchAll()//フィールド名,昇順
         .then(function(results) {
           showResults(results);
         })
     }
 
-    function searchLevel() {
-         let level=parseInt($("#level").val());
+    function searchcountry() {
+         let country=$("#country").val();//変数宣言
       let TestDataClass = ncmb.DataStore(db);
-      TestDataClass.equalTo("level",level).fetchAll()
+      TestDataClass.equalTo("country",country).fetchAll()//フィールド名,昇順
+        .then(function(results) {
+          showResults(results);
+        })
+    }
+
+    function searchmoney() {
+         let money=parseInt($("#money").val());
+      let TestDataClass = ncmb.DataStore(db);
+      TestDataClass.equalTo("money",level).fetchAll()
         .then(function(results) {
           showResults(results);
         })
@@ -72,14 +81,22 @@
     <label for="level">金額</label>
     <input id="level" type="number" placeholder="例）400">
   </div>
+  <div>
+    <label for="name">国名:</label>
+    <input id="country" type="text" placeholder="※英語入力">
+  </div>
+
   <div id="button">
-    <button class="btn" onclick="fetchAll()">全体表示</button>
-    <button class="btn" onclick="searchName()">商品名検索</button>
+    <button class="btn" onclick="fetchAll()">全品表示</button>
+    <button class="btn" onclick="searchName()">商品名で検索</button>
   </div>
+
   <div id="button"> 
-    <button class="btn" onclick="searchLevelLT()">Level &lt</button>
-    <button class="btn" onclick="searchLevel()">Level</button>
+    <button class="btn" onclick="searchmoney()">料金で検索</button>
+
+    <button class="btn" onclick="searchcountry()">国別で検索</button>
   </div>
+  
   <div id="message">検索結果...</div>
 </body>
 
