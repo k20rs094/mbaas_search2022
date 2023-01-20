@@ -44,7 +44,7 @@
     function searchmoney() {
          let money=parseInt($("#money").val());
       let TestDataClass = ncmb.DataStore(db);
-      TestDataClass.equalTo("money",level).fetchAll()
+      TestDataClass.equalTo("money",money).fetchAll()
         .then(function(results) {
           showResults(results);
         })
@@ -78,8 +78,8 @@
     <input id="name" type="text" placeholder="例）おにぎり">
   </div>
   <div>
-    <label for="level">金額</label>
-    <input id="level" type="number" placeholder="例）400">
+    <label for="money">金額</label>
+    <input id="money" type="number" placeholder="例）400">
   </div>
   <div>
     <label for="name">国名:</label>
